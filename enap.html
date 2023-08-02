@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Enap & Bros Ent.Com</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css/>
+      <style type="text/css">
+        
+       
+        @import url('text-style.css');
+        *{
+          Margin: 0;
+          Padding: 0;
+          Outline: none;
+          Box-sizing: border-box;
+          
+        }
+        Body{
+          Background: #2f4f4f;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        Nav{
+          Background: #2f4f4f;
+          Display: flex;
+          Flex-wrap: wrap;
+          Align-items: center;
+          Justify-content: space-between;
+          Height: 70px;
+          Padding: 0 100px;
+          opacity: 0.7;
+        }
+        Nav .logo{
+          Color: #fff;
+          Font-size: 30px;
+          Font-weight: 600;
+          Letter-spacing: -1px;
+        }
+        Nav .nav-items{
+          Display: flex;
+          Flex: 1;
+          Padding: 0 0 0 40px;
+        }
+        Nav .nav-items li{
+          List-style: none;
+          Padding: 0 15px;
+        }
+        Nav .nav-items li a{
+          Color: #fff;
+          Font-size: 18px;
+          Font-weight: 500;
+          Text-decoration: none;
+        }
+        Nav .nav-items li a:hover{
+          Color: #2a16dd;
+        }
+        Nav form{
+          Display: flex;
+          Height: 40px;
+          Padding: 2px;
+          Background: #fff;
+          Min-width: 18%!important;
+          Border-radius: 2px;
+          Border: 1px solid rgba(226, 224, 224, 0.932);
+        }
+        Nav form .search-data{
+          Width: 100%;
+          Height: 100%;
+          Padding: 0 10px;
+          Color: #fff;
+          Font-size: 17px;
+          Border: none;
+          Font-weight: 500;
+          Background: none;
+        }
+        Nav form button{
+          Padding: 0 15px;
+          Color: #fff;
+          Font-size: 17px;
+          Background: #fff;
+          Border: none;
+          Border-radius: 2px;
+          Cursor: pointer;
+        }
+        Nav form button:hover{
+          Background: #fff;
+        }
+        Nav .menu-icon,
+        Nav .cancel-icon,
+        Nav .search-icon{
+          Width: 40px;
+          Text-align: center;
+          Margin: 0 50px;
+          Font-size: 18px;
+          Color: #fff;
+          Cursor: pointer;
+          Display: none;
+        }
+        Nav .menu-icon span,
+        Nav .cancel-icon,
+        Nav .search-icon{
+          Display: none;
+        }
+        @media (max-width: 1245px) {
+          Nav{
+            Padding: 0 50px;
+          }
+        }
+        @media (max-width: 1140px){
+          Nav{
+            Padding: 0px;
+          }
+          Nav .logo{
+            Flex: 2;
+            Text-align: center;
+          }
+          Nav .nav-items{
+            Position: fixed;
+            z-index: 99;
+            top: 70px;
+            width: 100%;
+            left: -100%;
+            height: 100%;
+            padding: 10px 50px 0 50px;
+            text-align: center;
+            background: #14181f;
+            display: inline-block;
+            transition: left 0.3s ease;
+          }
+          Nav .nav-items.active{
+            Left: 0px;
+          }
+          Nav .nav-items li{
+            Line-height: 40px;
+            Margin: 30px 0;
+          }
+          Nav .nav-items li a{
+            Font-size: 20px;
+          }
+          Nav form{
+            Position: absolute;
+            Top: 80px;
+            Right: 50px;
+            Opacity: 0;
+            Pointer-events: none;
+            Transition: top 0.3s ease, opacity 0.1s ease;
+          }
+          Nav form.active{
+            Top: 95px;
+            Opacity: 1;
+            Pointer-events: auto;
+          }
+          Nav form:before{
+            Position: absolute;
+            Content: “”;
+            Top: -13px;
+            Right: 0px;
+            Width: 0;
+            Height: 0;
+            z-index: -1;
+            border: 10px solid transparent;
+            border-bottom-color: #1e232b;
+            margin: -20px 0 0;
+          }
+          Nav form:after{
+            Position: absolute;
+            Content: '';
+            Height: 60px;
+            Padding: 2px;
+            Background: #1e232b;
+            Border-radius: 2px;
+            Min-width: calc(100% + 20px);
+            z-index: -2;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+          Nav .menu-icon{
+            Display: block;
+          }
+          Nav .search-icon,
+          Nav .menu-icon span{
+            Display: block;
+          }
+          Nav .menu-icon span.hide,
+          Nav .search-icon.hide{
+            Display: none;
+          }
+          Nav .cancel-icon.show{
+            Display: block;
+          }
+        }
+        .content{
+          Position: absolute;
+          Top: 50%;
+          Left: 50%;
+          Text-align: center;
+          Transform: translate(-50%, -50%);
+        }
+        .content header{
+          Font-size: 30px;
+          Font-weight: 700;
+        }
+        .content .text{
+          Font-size: 30px;
+          Font-weight: 700;
+        }
+        .space{
+          Margin: 10px 0;
+        }
+        Nav .logo.space{
+          Color:#fff;
+          Padding: 0 5px 0 0;
+        }
+        @media (max-width: 980px){
+          Nav .menu-icon,
+          Nav .cancel-icon,
+          Nav .search-icon{
+            Margin: 0 20px;
+          }
+          Nav form{
+            Right: 30px;
+          }
+        }
+        @media (max-width: 350px){
+          Nav .menu-icon,
+          Nav .cancel-icon,
+          Nav .search-icon{
+            Margin: 0 10px;
+            Font-size: 16px;
+          }
+        }
+        .content{
+          Position: absolute;
+          Top: 50%;
+          Left: 50%;
+          Transform: translate(-50%, -50%);
+        }
+        .content header{
+          Font-size: 30px;
+          Font-weight: 700;
+        }
+        .content .text{
+          Font-size: 30px;
+          Font-weight: 700;
+        }
+        .content .space{
+          Margin: 10px 0;
+        }
+.jumping-image {
+  Width: 130%;
+  Height: 170%;
+  Background-image: url(""); /* Replace ‘path_to_your_image.jpg’ with the actual path to your image */
+  Background-size: cover;
+  Animation: jumpAnimation 5s infinite alternate;
+}
+
+@keyframes jumpAnimation {
+  form{
+    transform: scale(10);
+  }
+  to{
+    transform: scale(1.2);
+  }
+}
+.jumping-image{
+  height: 200px;
+  width: 150px;
+}
+
+.hd{
+  color:#fff;
+  animation: slideIn 5s forwards;
+
+}
+@keyframes slideIn {
+  from{
+    transform: translateX(-100%);
+  }
+  to{
+    transform: translateX(0);
+  }
+  
+}
+
+
+.pic img{
+  margin-left: 5%;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 90%;
+  height: fit-content;
+  Display: flex;
+  Align-items: center;
+  Justify-content: space-between;
+}
+.pic :hover{
+  background-color: #fff;
+  animation: zoom 10s infinite alternate;
+}
+@keyframes zoom {
+  form{
+    transform: scale(10);
+  }
+  to{
+    transform: scale(1.2);
+  }
+
+}
+.pp{
+  font-size: 20px;
+  color: #fff;
+}
+.picq{
+
+  animation: zoom 10s infinite alternate;
+}
+@keyframes zoom {
+  form{
+    transform: scale(10);
+  }
+  to{
+    transform: scale(1.2);
+  }
+
+}
+.picq img{
+  margin-left: 5%;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 90%;
+  height: fit-content;
+  Display: flex;
+  Align-items: center;
+  Justify-content: space-between;
+}
+.learn a{
+  margin-top: 10;
+  margin-left: 40%;
+  padding: 3%;
+  background-color: #fff;
+  border-radius: 10px;
+  color: #000;
+}
+.ppw{
+  color: #fff;
+  font-size: 30px;
+}
+.ppqq{
+  color: #fff;
+  font-size: 15px;
+}
+.ppww{
+  color: #000;
+  font-size: 30px;
+}
+.contact{
+  background-color: #fff;
+
+}
+      </style>
+    </head>
+   <body>
+      <nav>
+         <div class="menu-icon">
+            <span class="fas fa-bars"></span>
+         </div>
+         <div class="logo">
+            Enap & Bros Ent
+         </div>
+         <div class="nav-items">
+            <li><a href="enap.html">Home</a></li>
+            <li><a href="enapabout.html">About</a></li>
+            <li><a href="enapproduct.html">Product</a></li>
+         </div>
+         <div class="search-icon">
+            
+         </div>
+         <div class="cancel-icon">
+            
+         </div>
+         
+            
+         </form>
+      </nav>
+      <h1 class="hd" align="center">Looking for an apartment? 
+        <br>You've come to the right place  </h1>
+       <br>
+       <br>
+       <br>
+
+ 
+       <div class="pic">  
+       <img src="h1.jpg"></img>
+       </div>>
+ 
+       <br>
+       <br>
+       <p align="center" class="pp"> 
+        Enap and Brothers enterprises is a real estate company 
+        <br>which specalize in,buying and selling immovable property
+        <br>if you need to buy a house Enap and brothers
+        <br>if you're also interested in seling your landed property
+        <br>heres the perfect place to do that  
+
+       </p>
+       <br>
+       <br>
+       <div class="learn">
+        <a href="login.php">lern more </a>
+       </div>
+       <br>
+       <br>
+
+       <br>
+       <br>
+       <br>
+       <div class="picq">  
+        <img src="house.jpg"></img>
+        </div>
+       <br>
+       <br>
+      <div class="content">
+         
+         <div class="space text">
+          <div class="jumping-image">
+            <header class="jumping-image"></header>
+            <br>
+            <br>
+
+          </div> 
+         </div>
+      </div>
+     <br>
+     <br>
+     <h1 align="center" class="ppw"> About Our platform</h1>
+     <p align="center" class="ppqq"> Enap & Brothers enterprises is a real estate company
+      <br>located at 
+      no.36 Ajbodu street,karaole estate college road ifokaljaive 
+    <br> our online platform has made it possible for our new and old custumers 
+     to be able to create an account with us and advertise your immovable assets
+    or properties,and to provide possible buyers to buy your property.
+    and we habve also made it possible for you our customer,to be able to 
+    buy properties from other salers who are willing to buy from other salers 
+  
+  </p>
+      <br>
+      <br>
+      <br>
+      <div class="contact">
+        <header align="center" class="ppww">contact us</header>
+        <i class="fas fa-angle-down">Facebok</i>
+        <hr>
+        <i class="fas fa-angle-down">Twitter</i> 
+        <hr>
+        <i class="fas fa-angle-down">Instagram</i>
+        <hr>
+        <i class="fas fa-angle-down">Tiktok</i>
+         <br>
+         <br>
+         <br>
+      </div>       
+   </body>
+</html>
